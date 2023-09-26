@@ -1,0 +1,27 @@
+/* Style for the navigation list */
+.nav-list {
+  /* Put items in a row */
+  color: #495e57;
+  text-transform: uppercase;
+  padding-right: 30px;
+}
+
+.nav-list ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  padding: 5px;
+}
+
+/* Style for navigation links */
+.nav-list li a {
+  text-decoration: none;
+  color: white;
+  padding: 0 20px;
+}
+
+/* Style for navigation links on hover (optional) */
+.nav-list li a:hover {
+  cursor: pointer;
+}

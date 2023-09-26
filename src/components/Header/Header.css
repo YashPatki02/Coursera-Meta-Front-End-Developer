@@ -1,0 +1,14 @@
+/* Style for the header container */
+.header-container {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+/* Style for the logo image */
+.logo {
+  margin-left: 30px;
+}
