@@ -1,13 +1,24 @@
 import React from "react";
-import Logo from "../../images/logo.png";
 import "./Header.css";
-import Nav from "../Nav/Nav";
 
-function Header() {
+import restaurantFood from "../../images/restaurantfood.jpg";
+
+function Header(props) {
   return (
     <header className="header-container">
-      <img className="logo" src={Logo} alt="Logo" width={250} />
-      <Nav />
+      <div>
+        <h1>{props.cafeTitle}</h1>
+        <h3>{props.cafeLocation}</h3>
+        <p>{props.cafeDescription}</p>
+        <button>{props.cafeButtonName}</button>
+      </div>
+      <div>
+        <img
+          className="header-image"
+          src={props.image === "restaurantFood" ? restaurantFood : null}
+          alt="restaurant food"
+        />
+      </div>
     </header>
   );
 }

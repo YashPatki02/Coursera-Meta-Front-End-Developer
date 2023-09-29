@@ -1,29 +1,45 @@
 import React from "react";
-import './Nav.css'
+import Logo from "../../images/logo.png";
+import "./Nav.css";
 
 function Nav() {
   return (
-    <nav className="nav-list">
-      <ul>
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Menu</a>
-        </li>
-        <li>
-          <a href="#">Reservations</a>
-        </li>
-        <li>
-          <a href="#">Order Online</a>
-        </li>
-        <li>
-          <a href="#">Login</a>
-        </li>
-      </ul>
+    <nav className="navbar">
+      <div className="nav-container">
+        <img className="logo" src={Logo} alt="Logo" width={150} />
+        <ul className="nav-list">
+          <li className="nav-item">
+            <a href="#" className="nav-link">
+              Home
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link">
+              About
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link">
+              Menu
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link">
+              Reservations
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link">
+              Order Online
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link">
+              Login
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 }

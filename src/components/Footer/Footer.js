@@ -1,11 +1,13 @@
 import React from "react";
+import Logo from "../../images/logo.png";
+import "./Footer.css";
 
 function Footer() {
   return (
     <footer>
       <div className="footer-container">
         <div className="footer-column">
-          <img src="your-image-url-here" alt="Little Lemon Logo" />
+          <img src={Logo} alt="Little Lemon Logo" width={200}/>
         </div>
         <div className="footer-column">
           <h3>Quick Links</h3>
@@ -22,11 +24,10 @@ function Footer() {
             <li>
               <a href="/contact">Contact</a>
             </li>
-            {/* Add more quick links as needed */}
           </ul>
         </div>
         <div className="footer-column">
-          <h3>Contact Us</h3>
+          <h3>Contact Us</h3> <br />
           <p>123 Main Street</p>
           <p>City, State ZIP</p>
           <p>Email: info@littlelemon.com</p>

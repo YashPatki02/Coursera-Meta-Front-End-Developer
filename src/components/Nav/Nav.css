@@ -1,27 +1,43 @@
-/* Style for the navigation list */
-.nav-list {
-  /* Put items in a row */
-  color: #495e57;
-  text-transform: uppercase;
-  padding-right: 30px;
+/* Style for the entire navbar */
+.navbar {
+  background-color: #333;
+  padding: 10px 0;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.nav-list ul {
+/* Style for the navigation container */
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  list-style-type: none;
-  padding: 5px;
-}
-
-/* Style for navigation links */
-.nav-list li a {
-  text-decoration: none;
-  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Style for navigation links on hover (optional) */
-.nav-list li a:hover {
-  cursor: pointer;
+/* Style for the logo image */
+.logo {
+  max-width: 150px;
+  height: auto;
+}
+
+/* Style for the navigation list */
+.nav-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Style for navigation items */
+.nav-item {
+  margin: 0 15px;
+}
+
+/* Style for navigation links */
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0
 }
