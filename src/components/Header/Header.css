@@ -6,21 +6,21 @@
   max-width: 1200px;
   height: 90vh;
   margin: 0 auto;
-  padding: 0 20px;
-  background-color: #495E57;
-  color: #EDEFEE;
+  padding: 0 50px;
+  background-color: #495e57;
+  color: #edefee;
 }
 
 button {
-    padding: 10px;
-    margin-top: 30px;
-    font-size: 22px;
-    background-color: #F4CE14;
-    color: black;
-    outline: none;
-    border: none;
-    font-weight: 700;
-    border-radius: 16px;
+  padding: 10px;
+  margin-top: 30px;
+  font-size: 22px;
+  background-color: #f4ce14;
+  color: black;
+  outline: none;
+  border: none;
+  font-weight: 700;
+  border-radius: 16px;
 }
 
 .header-image {
@@ -29,23 +29,23 @@ button {
   border-radius: 15px;
 }
 
-h1 {
+.header-container h1 {
   font-size: 54px;
   font-weight: 700;
   margin: 0;
-  color: #F4CE14;
+  color: #f4ce14;
 }
 
-h3 {
+.header-container h3 {
   font-size: 28px;
   font-weight: 400;
-  margin: 0;
-  color: #EDEFEE;
+  margin-bottom: 30px;
+  color: #edefee;
 }
 
-p {
+.header-container p {
   font-size: 18px;
   font-weight: 400;
   margin: 0;
-  color: #EDEFEE;
+  color: white;
 }

@@ -9,33 +9,28 @@ function Nav() {
         <img className="logo" src={Logo} alt="Logo" width={150} />
         <ul className="nav-list">
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <a href="/" className="nav-link">
               Home
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <a href="/about" className="nav-link">
               About
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <a href="/menu" className="nav-link">
               Menu
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <a href="/reserve" className="nav-link">
               Reservations
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <a href="/order" className="nav-link">
               Order Online
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              Login
             </a>
           </li>
         </ul>

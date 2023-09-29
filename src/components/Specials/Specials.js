@@ -52,11 +52,17 @@ const SpecialCard = (props) => {
 };
 
 const Specials = () => {
+  const goToOrder = () => {
+    window.location.href = "/order";
+  };
+
   return (
     <section className="specials-container">
       <div className="special-header">
         <h2>Specials</h2>
-        <button className="menu-button">Online Menu</button>
+        <button className="menu-button" onClick={goToOrder}>
+          Online Menu
+        </button>
       </div>
 
       <div className="specials-cards-container">

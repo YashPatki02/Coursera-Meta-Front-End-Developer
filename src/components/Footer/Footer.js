@@ -7,7 +7,7 @@ function Footer() {
     <footer>
       <div className="footer-container">
         <div className="footer-column">
-          <img src={Logo} alt="Little Lemon Logo" width={200}/>
+          <img src={Logo} alt="Little Lemon Logo" width={200} />
         </div>
         <div className="footer-column">
           <h3>Quick Links</h3>
@@ -17,6 +17,9 @@ function Footer() {
             </li>
             <li>
               <a href="/menu">Menu</a>
+            </li>
+            <li>
+              <a href="/order">Order Online</a>
             </li>
             <li>
               <a href="/about">About Us</a>
