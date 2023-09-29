@@ -1,6 +1,7 @@
 import React from "react";
 import "./Main.css";
 import Specials from "../Specials/Specials";
+import Testimonials from "../Testimonials/Testimonials";
 
 
 
@@ -8,7 +9,7 @@ function Main() {
   return (
     <main>
       <Specials />
-      <div>Testimonials</div>
+      <Testimonials />
       <div>About</div>
     </main>
   );
