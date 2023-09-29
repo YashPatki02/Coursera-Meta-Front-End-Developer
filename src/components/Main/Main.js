@@ -1,11 +1,13 @@
 import React from "react";
 import "./Main.css";
+import Specials from "../Specials/Specials";
+
+
 
 function Main() {
   return (
     <main>
-      Main
-      <div>Specials</div>
+      <Specials />
       <div>Testimonials</div>
       <div>About</div>
     </main>
