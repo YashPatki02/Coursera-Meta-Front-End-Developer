@@ -6,6 +6,7 @@ import Main from "./components/Main/Main";
 import Nav from "./components/Nav/Nav";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Specials from "./components/Specials/Specials";
+import BookingPage from "./components/BookingPage/BookingPage";
 
 function App() {
   const homeHeader = {
@@ -67,6 +68,15 @@ function App() {
                   image={homeHeader.image}
                 />
                 <Specials />
+                <About />
+              </>
+            }
+          />
+          <Route
+            path="/reserve"
+            element={
+              <>
+                <BookingPage />
                 <About />
               </>
             }

@@ -4,13 +4,18 @@ import "./Header.css";
 import restaurantFood from "../../images/restaurantfood.jpg";
 
 function Header(props) {
+
+  const handleRedirection = () => {
+    window.location.href = "/reserve";
+  };
+
   return (
     <header className="header-container">
       <div>
         <h1>{props.cafeTitle}</h1>
         <h3>{props.cafeLocation}</h3>
         <p>{props.cafeDescription}</p>
-        <button>{props.cafeButtonName}</button>
+        <button onClick={handleRedirection}>{props.cafeButtonName}</button>
       </div>
       <div>
         <img
