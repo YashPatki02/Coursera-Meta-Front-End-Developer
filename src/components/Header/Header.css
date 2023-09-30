@@ -24,8 +24,7 @@ button {
 }
 
 .header-image {
-  max-width: 250px;
-  height: auto;
+  max-height: 400px;
   border-radius: 15px;
 }
 

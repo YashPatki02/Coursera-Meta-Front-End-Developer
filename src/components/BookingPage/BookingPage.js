@@ -1,9 +1,10 @@
 import "./BookingPage.css";
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
+import { fetchAPI, submitAPI } from "../../utilities/SampleAPI.js";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const BookingForm = ({ availableTimes, dispatch }) => {
+const BookingForm = ({ availableTimes, dispatch, setSelectedDate }) => {
   const occasions = ["Birthday", "Anniversary", "Other"];
 
   const initialValues = {
@@ -15,13 +16,6 @@ const BookingForm = ({ availableTimes, dispatch }) => {
     occasion: "",
     seats: 4,
   };
-
-  useEffect(() => {
-    dispatch({
-      type: "UPDATE_TIMES",
-      payload: ["11:00", "12:00", "13:00", "14:00"],
-    });
-  }, [dispatch]);
 
   const formik = useFormik({
     initialValues,
@@ -36,10 +30,17 @@ const BookingForm = ({ availableTimes, dispatch }) => {
       seats: Yup.number().required("Required"),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      submitAPI(values);
+      dispatch({ type: "UPDATE_TIMES", payload: [] });
       formik.resetForm();
+
+      window.location.href = "/confirmation";
     },
   });
+
+  useEffect(() => {
+    setSelectedDate(formik.values.date);
+  }, [formik.values.date]);
 
   return (
     <form onSubmit={formik.handleSubmit} className="booking-form">
@@ -58,24 +59,26 @@ const BookingForm = ({ availableTimes, dispatch }) => {
         ) : null}
       </div>
       <div className="form-group">
-        <label htmlFor="time">Pick a Time</label>
-        <select
-          id="time"
-          name="time"
-          onChange={formik.handleChange}
-          value={formik.values.time}
-        >
-          <option value="">Select a time</option>
+        <label>Pick a Time</label>
+        <div className="radio-buttons">
           {availableTimes.map((time) => (
-            <option key={time} value={time}>
+            <label key={time} className="radio-label">
+              <input
+                type="radio"
+                name="time"
+                value={time}
+                onChange={formik.handleChange}
+                checked={formik.values.time === time}
+              />
               {time}
-            </option>
+            </label>
           ))}
-        </select>
+        </div>
         {formik.errors.time ? (
           <div className="error">{formik.errors.time}</div>
         ) : null}
       </div>
+
       <div className="form-group">
         <label htmlFor="seats">Number of Seats</label>
         <input
@@ -155,29 +158,64 @@ const BookingForm = ({ availableTimes, dispatch }) => {
   );
 };
 
-const BookingPage = () => {
-  const initializeTimes = () => {
-    return ["11:00", "12:00"]; 
-  };
+export const initializeTimes = async () => {
+  const today = new Date();
+  const formattedDate = today.toISOString().slice(0, 10);
+  try {
+    const availableTimes = await fetchAPI(formattedDate);
 
-  const updateTimes = (times) => {
-    return {
-      type: "UPDATE_TIMES",
-      payload: times,
-    };
-  };
+    return availableTimes;
+  } catch (error) {
+    console.error("Error fetching available times:", error);
+    return [];
+  }
+};
+
+export const updateTimes = async (dispatch, newDate) => {
+  try {
+    const availableTimes = await fetchAPI(newDate);
+    dispatch({ type: "UPDATE_TIMES", payload: availableTimes });
+  } catch (error) {
+    console.error("Error updating available times:", error);
+  }
+};
+
+const BookingPage = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const timesReducer = (state, action) => {
     if (action.type === "UPDATE_TIMES") {
       return {
+        ...state,
         availableTimes: action.payload,
       };
+    } else {
+      return state;
     }
-    return state;
   };
 
-  const [state, dispatch] = useReducer(timesReducer, [], initializeTimes);
+  const [state, dispatch] = useReducer(timesReducer, {
+    availableTimes: [],
+  });
 
+  useEffect(() => {
+    async function fetchData() {
+      const times = await initializeTimes();
+      dispatch({ type: "UPDATE_TIMES", payload: times });
+    }
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        await updateTimes(dispatch, selectedDate);
+      } catch (error) {
+        console.error("Error updating available times:", error);
+      }
+    })();
+  }, [selectedDate]);
 
   return (
     <div className="booking-page">
@@ -187,6 +225,7 @@ const BookingPage = () => {
           <p>Fill out the form below to reserve a table.</p>
         </div>
         <BookingForm
+          setSelectedDate={setSelectedDate}
           availableTimes={state.availableTimes}
           dispatch={dispatch}
         />

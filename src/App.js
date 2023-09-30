@@ -81,6 +81,20 @@ function App() {
               </>
             }
           />
+          <Route
+            path="/confirmation"
+            element={
+              <>
+                <Header
+                  cafeTitle="Thank you for your reservation!"
+                  cafeDescription="We look forward to seeing you soon."
+                  cafeButtonName="Order Online"
+                  image="restaurant"
+                />
+                <About />
+              </>
+            }
+          />
         </Routes>
         <Footer />
       </BrowserRouter>

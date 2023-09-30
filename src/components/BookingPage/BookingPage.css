@@ -96,3 +96,23 @@ button:hover {
   flex-direction: column;
   margin-bottom: 100px;
 }
+
+.radio-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 10px; 
+  max-width: 400px;
+}
+
+.radio-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #495E57;
+  border-radius: 15px;
+  cursor: pointer;
+  list-style: none;
+  color: white;
+  accent-color: #f4ce14;
+}
