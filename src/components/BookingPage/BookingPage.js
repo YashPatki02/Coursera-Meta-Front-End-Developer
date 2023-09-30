@@ -1,10 +1,10 @@
 import "./BookingPage.css";
-import React, { useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const BookingForm = () => {
-  const [availableTimes, setAvailableTimes] = useState(["11:00"]);
+const BookingForm = ({ availableTimes, dispatch }) => {
+  const occasions = ["Birthday", "Anniversary", "Other"];
 
   const initialValues = {
     date: "",
@@ -12,8 +12,16 @@ const BookingForm = () => {
     name: "",
     email: "",
     phone: "",
+    occasion: "",
     seats: 4,
   };
+
+  useEffect(() => {
+    dispatch({
+      type: "UPDATE_TIMES",
+      payload: ["11:00", "12:00", "13:00", "14:00"],
+    });
+  }, [dispatch]);
 
   const formik = useFormik({
     initialValues,
@@ -29,7 +37,7 @@ const BookingForm = () => {
     }),
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      formik.resetForm();   
+      formik.resetForm();
     },
   });
 
@@ -81,6 +89,25 @@ const BookingForm = () => {
           <div className="error">{formik.errors.seats}</div>
         ) : null}
       </div>
+      <div className="form-group">
+        <label htmlFor="occasion">Occasion</label>
+        <select
+          id="occasion"
+          name="occasion"
+          onChange={formik.handleChange}
+          value={formik.values.occasion}
+        >
+          <option value="">Select an occasion</option>
+          {occasions.map((occasion) => (
+            <option key={occasion} value={occasion}>
+              {occasion}
+            </option>
+          ))}
+        </select>
+        {formik.touched && formik.errors.occasion ? (
+          <div className="error">{formik.errors.occasion}</div>
+        ) : null}
+      </div>
       <div className="personal-info">Personal Details</div>
       <div className="form-group">
         <label htmlFor="name">Name</label>
@@ -129,6 +156,21 @@ const BookingForm = () => {
 };
 
 const BookingPage = () => {
+  const intialTimesState = {
+    availableTimes: ["11:00"],
+  };
+
+  const timesReducer = (state, action) => {
+    if (action.type === "UPDATE_TIMES") {
+      return {
+        availableTimes: action.payload,
+      };
+    }
+    return state;
+  };
+
+  const [state, dispatch] = useReducer(timesReducer, intialTimesState);
+
   return (
     <div className="booking-page">
       <div className="booking-page-container">
@@ -136,7 +178,10 @@ const BookingPage = () => {
           <h1>Book a Table</h1>
           <p>Fill out the form below to reserve a table.</p>
         </div>
-        <BookingForm />
+        <BookingForm
+          availableTimes={state.availableTimes}
+          dispatch={dispatch}
+        />
       </div>
     </div>
   );
