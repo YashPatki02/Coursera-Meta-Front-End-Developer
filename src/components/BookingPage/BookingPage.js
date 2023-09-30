@@ -156,8 +156,15 @@ const BookingForm = ({ availableTimes, dispatch }) => {
 };
 
 const BookingPage = () => {
-  const intialTimesState = {
-    availableTimes: ["11:00"],
+  const initializeTimes = () => {
+    return ["11:00", "12:00"]; 
+  };
+
+  const updateTimes = (times) => {
+    return {
+      type: "UPDATE_TIMES",
+      payload: times,
+    };
   };
 
   const timesReducer = (state, action) => {
@@ -169,7 +176,8 @@ const BookingPage = () => {
     return state;
   };
 
-  const [state, dispatch] = useReducer(timesReducer, intialTimesState);
+  const [state, dispatch] = useReducer(timesReducer, [], initializeTimes);
+
 
   return (
     <div className="booking-page">
