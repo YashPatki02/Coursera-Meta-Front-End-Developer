@@ -152,7 +152,7 @@ export const BookingForm = ({ availableTimes, dispatch, setSelectedDate }) => {
         ) : null}
       </div>
       <div className="button-div">
-        <button type="submit">Submit</button>
+        <button aria-label="Submit" type="submit">Submit</button>
       </div>
     </form>
   );

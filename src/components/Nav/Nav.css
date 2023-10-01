@@ -1,6 +1,6 @@
 /* Style for the entire navbar */
 .navbar {
-  background-color: #333;
+  background-color: #333333;
   padding: 10px 0;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -37,7 +37,7 @@
 /* Style for navigation links */
 .nav-link {
   text-decoration: none;
-  color: white;
+  color: #edefee;
   font-weight: bold;
   transition: color 0
 }

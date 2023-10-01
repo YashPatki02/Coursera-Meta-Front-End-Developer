@@ -32,7 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: #333333;
   font-size: 20px;
   font-weight: bold;
 }
@@ -43,15 +43,15 @@ button {
   padding: 10px 20px;
   font-size: 22px;
   background-color: #f4ce14;
-  color: black;
+  color: #333333;
   font-weight: 700;
   border-radius: 6px;
   align-items: center;
 }
 
 button:hover {
-  background-color: #a0870c;
-  color: black;
+  background-color: #495E57;
+  color: #edefee;
   cursor: pointer;
 }
 
@@ -64,7 +64,7 @@ button:hover {
 }
 
 .error {
-  color: red;
+  color: #ee9972;
   font-size: 14px;
 }
 
@@ -113,6 +113,6 @@ button:hover {
   border-radius: 15px;
   cursor: pointer;
   list-style: none;
-  color: white;
+  color: #edefee;
   accent-color: #f4ce14;
 }
