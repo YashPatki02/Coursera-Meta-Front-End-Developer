@@ -4,7 +4,7 @@ import { fetchAPI, submitAPI } from "../../utilities/SampleAPI.js";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const BookingForm = ({ availableTimes, dispatch, setSelectedDate }) => {
+export const BookingForm = ({ availableTimes, dispatch, setSelectedDate }) => {
   const occasions = ["Birthday", "Anniversary", "Other"];
 
   const initialValues = {
@@ -235,3 +235,4 @@ const BookingPage = () => {
 };
 
 export default BookingPage;
+
